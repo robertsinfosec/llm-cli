@@ -213,25 +213,26 @@ This directory contains the core `llm.sh` (Bash) and `llm.ps1` (PowerShell) scri
     ```
     *This command asks the LLM to generate the specific Azure CLI command needed to create a resource group with given parameters.*
 
-3.  **Explain GCP IAM Role (Start of Pipe):**
+3.  **Explain GCP IAM Role Details (End of Pipe):**
 
     ```bash
-    llm "Explain the purpose of the 'roles/compute.instanceAdmin.v1' IAM role in Google Cloud."
+    gcloud iam roles describe roles/compute.instanceAdmin.v1 --format=json | llm "Explain the purpose and key permissions of this GCP IAM role based on its JSON description."
     ```
-    *This command asks the LLM to explain a specific Google Cloud IAM role.*
+    *This command retrieves the detailed JSON description of a GCP IAM role using `gcloud` and asks the LLM to explain its purpose and key permissions.*
 
-4.  **Convert AWS CLI to Azure CLI (Start of Pipe):**
+4.  **Summarize Azure VM List (End of Pipe):**
 
     ```bash
-    llm "Convert the AWS CLI command 'aws s3 ls s3://my-bucket' to its equivalent \
-        Azure CLI command for listing blobs in a container."
+    az vm list --output json | llm "Summarize the names, locations, and OS types of the Azure VMs listed in this JSON output."
     ```
-    *This command asks the LLM to translate a given AWS CLI command into its functional equivalent for the Azure CLI.*
+    *This command lists Azure VMs in JSON format using `az vm list` and asks the LLM to summarize key details like name, location, and OS type.*
 
 5.  **Generate Cloud Cost Anomaly Alert Idea (Start of Pipe):**
 
     ```bash
-    llm "Suggest a simple shell script logic using the AWS CLI to check yesterday's estimated \
-        charges and alert if it's 50% higher than the day before."
+    llm "Generate a simple shell script logic using the AWS CLI to check yesterday's estimated \
+        charges and alert if it's 50% higher than the day before. Output only the script, \
+        written to best practices, and production ready, with input validation, and error \
+        handling." > ./check_cost_anomaly.sh
     ```
-    *This command asks the LLM to outline the logic for a shell script that uses the AWS CLI to detect potential cost anomalies.*
+    *This command asks the LLM to generate a shell script that uses the AWS CLI to detect potential cost anomalies.*

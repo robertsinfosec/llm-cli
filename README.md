@@ -3,7 +3,8 @@
 A versatile command-line interface designed to facilitate seamless interaction with local or remote Ollama-compatible Large Language Model (LLM) APIs directly from your terminal. This toolset provides both a Bash script (`llm.sh`) and a PowerShell script (`llm.ps1`) to cater to 
 different shell environments, offering a consistent experience across platforms.
 
-> [!TIP] For a comprehensive blog post about how to use these scripts, visit:
+> [!TIP]
+> For a comprehensive blog post about how to use these scripts, visit:
 >  
 > > **[https://robertsinfosec.com/posts/llm-powered-cli/](https://robertsinfosec.com/posts/llm-powered-cli/)**
 

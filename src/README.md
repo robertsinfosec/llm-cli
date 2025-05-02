@@ -216,14 +216,17 @@ This directory contains the core `llm.sh` (Bash) and `llm.ps1` (PowerShell) scri
 3.  **Explain GCP IAM Role Details (End of Pipe):**
 
     ```bash
-    gcloud iam roles describe roles/compute.instanceAdmin.v1 --format=json | llm "Explain the purpose and key permissions of this GCP IAM role based on its JSON description."
+    gcloud iam roles describe roles/compute.instanceAdmin.v1 --format=json \
+        | llm "Explain the purpose and key permissions of this GCP IAM role based \
+        on its JSON description."
     ```
     *This command retrieves the detailed JSON description of a GCP IAM role using `gcloud` and asks the LLM to explain its purpose and key permissions.*
 
 4.  **Summarize Azure VM List (End of Pipe):**
 
     ```bash
-    az vm list --output json | llm "Summarize the names, locations, and OS types of the Azure VMs listed in this JSON output."
+    az vm list --output json | llm "Summarize the names, locations, and OS types \
+        of the Azure VMs listed in this JSON output."
     ```
     *This command lists Azure VMs in JSON format using `az vm list` and asks the LLM to summarize key details like name, location, and OS type.*
 
